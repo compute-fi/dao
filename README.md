@@ -82,12 +82,15 @@ Multiple branches for different functionalities
 
 [ERC721 DAO](https://www.covalenthq.com/docs/unified-api/guides/what-are-daos-and-how-do-they-work-part-2/)
 
-[create an NFT DAO](https://stackoverflow.com/questions/71285400/how-are-erc-721-based-dao-created#:~:text=Next%20steps%20are%20pursued%20like,comes%20to%20the%20DAO%20treasury.)
+The Next Step in this process is: 
+- Deploy governance contract and then the governor contract on testnet and then using 
+    https://www.tally.xyz/add-a-dao
+add the dao to tally and check it out how it is working.  
 
-[create an NFT DAO](https://blog.tally.xyz/how-to-create-an-nft-dao-47669a9e4e3a)
+<!-- [create an NFT DAO](https://blog.tally.xyz/how-to-create-an-nft-dao-47669a9e4e3a) -->
 
+[Governance Token vs Utility Token](https://www.coingecko.com/learn/governance-vs-utility-tokens) 
 
-[Governance Token vs Utility Token](https://www.coingecko.com/learn/governance-vs-utility-tokens)
 
 
 3. upgradable smart contracts (Governor contract) - add it later on if time permits. 
