@@ -4,23 +4,25 @@ pragma solidity ^0.8.19;
 
 import {Test} from "forge-std/Test.sol";
 import "forge-std/console.sol";
-import {MyGovernor} from "../src/MyGovernor.sol";
+import {CoVGovernor} from "../src/CoVGovernor.sol";
 import {Box} from "../src/Box.sol";
 import {Timelock} from "../src/Timelock.sol";
-import {GovToken} from "../src/GovToken.sol";
+import {CoVDAO} from "../src/CovNFTDAO.sol";
 
 contract MyGovernorTest is Test {
-    MyGovernor governor;
+    CoVGovernor governor;
     Box box;
     Timelock timelock;
-    GovToken govToken;
+    CoVDAO govToken;
 
     address public USER = makeAddr("user");
-    uint256 public constant INITIAL_SUPPLY = 100 ether;
+    // uint256 public constant INITIAL_SUPPLY = 100 ether;
+    string public constant TOKEN_URI =
+        "bafkreia7x3u3wzcbeviiigw4c5blmypx3lpmieynlhe5qwao5lu5jls3gm";
 
     uint256 public constant MIN_DELAY = 3600;
-    uint256 public constant VOTING_DELAY = 1; // how many blocks the proposal is active
-    uint256 public constant VOTING_PERIOD = 50400; // how many blocks the proposal is active
+    uint256 public constant VOTING_DELAY = 2; // how many blocks the proposal is active
+    uint256 public constant VOTING_PERIOD = 25; // how many seconds the proposal is active
 
     address[] proposers;
     address[] executors;
@@ -31,20 +33,27 @@ contract MyGovernorTest is Test {
     address[] targets;
 
     function setUp() public {
-        govToken = new GovToken();
-        govToken.mint(USER, INITIAL_SUPPLY);
+        govToken = new CoVDAO(USER, USER, USER);
         vm.startPrank(USER);
+        
+        bytes32 minterRole = govToken.MINTER_ROLE();
+        govToken.grantRole(minterRole, address(0));
+
+        govToken.safeMint(USER, TOKEN_URI);
+
         govToken.delegate(USER);
         timelock = new Timelock(MIN_DELAY, proposers, executors, admins);
-        governor = new MyGovernor(govToken, timelock);
+        governor = new CoVGovernor(govToken, timelock);
 
         bytes32 proposerRole = timelock.PROPOSER_ROLE();
         bytes32 executorRole = timelock.EXECUTOR_ROLE();
         bytes32 adminRole = timelock.DEFAULT_ADMIN_ROLE();
-
+        
         timelock.grantRole(proposerRole, address(governor));
         timelock.grantRole(executorRole, address(0));
         timelock.revokeRole(adminRole, USER);
+
+
         vm.stopPrank();
 
         box = new Box();

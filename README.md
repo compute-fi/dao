@@ -87,6 +87,9 @@ Multiple branches for different functionalities
 [create an NFT DAO](https://blog.tally.xyz/how-to-create-an-nft-dao-47669a9e4e3a)
 
 
+[Governance Token vs Utility Token](https://www.coingecko.com/learn/governance-vs-utility-tokens)
+
+
 3. upgradable smart contracts (Governor contract) - add it later on if time permits. 
 4. voting throught snapshot.js sdk
 
