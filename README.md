@@ -67,7 +67,7 @@ $ cast --help
 
 
 
-### What do we want: 
+# What do we want: 
 
 1. We want a contract to be controlled by a DAO
 2. Every transaction that the DAO want to send has to be voted on
@@ -77,8 +77,16 @@ $ cast --help
 
 ## Different Branches
 Multiple branches for different functionalities 
-1. for ERC-20 based Governance Token 
-2. for ERC-721 based Governance Token (This is the one we actually want - we will have to modify it based on our needs)
+1. for ERC-20 based Governance Token (check [dao-erc20]() branch)
+2. for ERC-721 based Governance Token (This is the one we actually want - we will have to modify it based on our needs) (check main branch)
+
+[ERC721 DAO](https://www.covalenthq.com/docs/unified-api/guides/what-are-daos-and-how-do-they-work-part-2/)
+
+[create an NFT DAO](https://stackoverflow.com/questions/71285400/how-are-erc-721-based-dao-created#:~:text=Next%20steps%20are%20pursued%20like,comes%20to%20the%20DAO%20treasury.)
+
+[create an NFT DAO](https://blog.tally.xyz/how-to-create-an-nft-dao-47669a9e4e3a)
+
+
 3. upgradable smart contracts (Governor contract) - add it later on if time permits. 
 4. voting throught snapshot.js sdk
 
