@@ -64,3 +64,21 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+
+
+### What do we want: 
+
+1. We want a contract to be controlled by a DAO
+2. Every transaction that the DAO want to send has to be voted on
+3. We will use ERC-20 token for voting (research better models - which governance token will I will use - replace this with the dNFT or create a token which is related to the funder's dNFT and a project so that for every project the user is able to vote only once for a proposal)/
+
+> Some kind of token[1 user (dNFT) + 1 project + 1 proposal] => 1 vote 
+
+## Different Branches
+Multiple branches for different functionalities 
+1. for ERC-20 based Governance Token 
+2. for ERC-721 based Governance Token (This is the one we actually want - we will have to modify it based on our needs)
+3. upgradable smart contracts (Governor contract) - add it later on if time permits. 
+4. voting throught snapshot.js sdk
+
