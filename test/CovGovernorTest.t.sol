@@ -35,7 +35,7 @@ contract MyGovernorTest is Test {
     function setUp() public {
         govToken = new CoVDAO(USER, USER, USER);
         vm.startPrank(USER);
-        
+
         bytes32 minterRole = govToken.MINTER_ROLE();
         govToken.grantRole(minterRole, address(0));
 
@@ -48,11 +48,10 @@ contract MyGovernorTest is Test {
         bytes32 proposerRole = timelock.PROPOSER_ROLE();
         bytes32 executorRole = timelock.EXECUTOR_ROLE();
         bytes32 adminRole = timelock.DEFAULT_ADMIN_ROLE();
-        
+
         timelock.grantRole(proposerRole, address(governor));
         timelock.grantRole(executorRole, address(0));
         timelock.revokeRole(adminRole, USER);
-
 
         vm.stopPrank();
 
@@ -60,13 +59,13 @@ contract MyGovernorTest is Test {
         box.transferOwnership(address(timelock));
     }
 
-    function testCantUpdateBoxWithoutGovernance() public {
-        vm.expectRevert();
-        box.store(1);
+    function testFailCantUpdateBoxWithoutGovernance(uint256 _value) public {
+        // vm.expectRevert();
+        box.store(_value);
     }
 
-    function testGovernanceUpdateBox() public {
-        uint256 valueToStore = 111;
+    function testGovernanceUpdateBox(uint256 _value) public {
+        uint256 valueToStore = _value;
         string memory description = "store 111 in Box";
         bytes memory encodedFunctionCall = abi.encodeWithSignature(
             "store(uint256)",
