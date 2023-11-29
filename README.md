@@ -92,9 +92,11 @@ add the dao to tally and check it out how it is working.
 [Governance Token vs Utility Token](https://www.coingecko.com/learn/governance-vs-utility-tokens) 
 
 ##### Deployed contract addresses in sepolia
-Governance Token: 0x7A20E64A0b25C8d28aaE259a07F5242A8F9c3f58
+Governance Token: 0x8d1B4cDc4b9d461b64E0cf92A083Dc070EE90eD1
 Timelock: 0x5041C6A71Af779ff3301cf39EE7e4D6c7Aa0f0F4
-Governor: 0xeE90980925e08DF49C151Ee6acE5DC858628446F
+Governor: 0xE4158af9243f0D99d17580C80b60B2f56322cE96
+
+Target: Box: 0x29CDB0cfBb20ebeF190c4BFFA59e550ff4394922
 
 
 3. upgradable smart contracts (Governor contract) - add it later on if time permits. 
